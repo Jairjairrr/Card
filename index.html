@@ -1,0 +1,753 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi persona favorita ❤️</title>
+    <!-- Tailwind CSS para el diseño rápido y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuentes de Google para un toque más romántico -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'cursive': ['"Dancing Script"', 'cursive'],
+                        'sans': ['"Nunito"', 'sans-serif'],
+                    },
+                    colors: {
+                        'pink': {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fbcfe8 100%);
+            min-height: 100vh;
+        }
+
+        /* Animación de corazones flotantes */
+        .heart-bg {
+            position: fixed;
+            bottom: -10vh;
+            color: #f9a8d4;
+            opacity: 0.6;
+            animation: floatUp linear infinite;
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Efecto de latido para el botón del sobre */
+        .pulse-heart {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Ocultar barra de desplazamiento pero permitir scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 overflow-hidden relative">
+
+    <!-- Contenedor de corazones flotantes -->
+    <div id="hearts-container" class="absolute inset-0 overflow-hidden pointer-events-none z-0"></div>
+
+    <!-- PANTALLA DE INICIO (Sobre / Botón) -->
+    <div id="welcome-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-pink-100 transition-opacity duration-1000 ease-in-out">
+        <div class="text-center px-6">
+            <h1 class="font-cursive text-4xl md:text-5xl text-pink-600 mb-8 drop-shadow-md">Tienes una carta especial...</h1>
+            
+            <button id="open-btn" class="relative group outline-none transition-transform hover:scale-105 active:scale-95">
+                <!-- Icono de sobre usando SVG -->
+                <div class="w-48 h-32 bg-pink-300 rounded-lg shadow-xl relative overflow-hidden flex items-center justify-center border-2 border-pink-400">
+                    <!-- Solapa del sobre -->
+                    <div class="absolute top-0 left-0 w-full h-full border-t-[80px] border-t-pink-200 border-l-[96px] border-l-transparent border-r-[96px] border-r-transparent origin-top transition-transform duration-500 group-hover:rotate-x-180 z-10"></div>
+                    <!-- Corazón central -->
+                    <div class="z-20 pulse-heart text-5xl">💝</div>
+                </div>
+                <p class="mt-6 text-pink-600 font-bold tracking-wider uppercase text-sm bg-white/50 py-2 px-6 rounded-full shadow-sm">Tocar para abrir</p>
+            </button>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL (Oculto al inicio) -->
+    <main id="main-content" class="hidden h-screen overflow-y-auto hide-scrollbar z-10 relative pb-20 pt-10 px-4 md:px-8">
+        <div class="max-w-2xl mx-auto space-y-12">
+            
+            <!-- 1. Carta Romántica -->
+            <section class="glass-card p-8 rounded-3xl shadow-lg shadow-pink-200/50 transform transition hover:-translate-y-1 duration-300">
+                <h2 class="font-cursive text-4xl text-pink-600 text-center mb-6"> Para mi amor eterno ❤️</h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed text-lg">
+                    <p>Hola mi vida,</p>
+                    <p>Quería hacer algo especial para ti, algo diferente que pudieras guardar y ver cuando quisieras. Gracias por ser mi persona favorita, por hacer mis días más ligeros y por sacarme sonrisas incluso cuando no tengo ganas.</p>
+                    <p>Aún recuerdo cuando caminábamos juntos; desde la primera ves todo serios y callados xd,hasta las tardes de risas y helados. Cada lugar a tu lado se convierte en mi lugar favorito del mundo.</p>
+                    <p>Contigo todo se siente más bonito, más divertido y más real. Te elijo hoy y siempre (y también para comer juntos, ver pelis y reírnos de tonterías).</p>
+                    <p>Amor mio agradecer a la vida por darme la oportunidad de poder estar contigo y sobretodo a Dios por mandarme a la mujer de mis sueños, te amo hoy y siempre cariño mio, nunca olvides que el amor que te dare siempre seguira aumentando para ti, siempre te adorare y te amare, hasta mis ultimos dias.</p>
+                    <p class="font-bold text-pink-500 text-right mt-6">Te amo muchisimo ❤️✨</p>
+                </div>
+            </section>
+
+            <!-- 2. Tiempo Juntos (Contador) -->
+            <section class="glass-card p-8 rounded-3xl shadow-lg shadow-pink-200/50 text-center">
+                <h3 class="text-xl font-bold text-pink-500 mb-6 uppercase tracking-wide">Nuestro tiempo juntos 🥰</h3>
+                <div class="flex justify-center gap-3 md:gap-6 text-pink-600">
+                    <div class="flex flex-col items-center bg-white/60 w-16 h-16 md:w-20 md:h-20 justify-center rounded-2xl shadow-sm">
+                        <span id="days" class="text-2xl md:text-3xl font-bold">00</span>
+                        <span class="text-xs font-semibold uppercase">Días</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-white/60 w-16 h-16 md:w-20 md:h-20 justify-center rounded-2xl shadow-sm">
+                        <span id="hours" class="text-2xl md:text-3xl font-bold">00</span>
+                        <span class="text-xs font-semibold uppercase">Hrs</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-white/60 w-16 h-16 md:w-20 md:h-20 justify-center rounded-2xl shadow-sm">
+                        <span id="minutes" class="text-2xl md:text-3xl font-bold">00</span>
+                        <span class="text-xs font-semibold uppercase">Min</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-white/60 w-16 h-16 md:w-20 md:h-20 justify-center rounded-2xl shadow-sm">
+                        <span id="seconds" class="text-2xl md:text-3xl font-bold">00</span>
+                        <span class="text-xs font-semibold uppercase">Seg</span>
+                    </div>
+                </div>
+                <p class="text-center text-sm text-pink-500 mt-4 italic">Aqui amor quedara por siempre el tiempo que estaremos juntos ❤️ *</p>
+            </section>
+
+            <!-- 3. Galería de Recuerdos -->
+            <section class="glass-card p-8 rounded-3xl shadow-lg shadow-pink-200/50">
+                <h3 class="font-cursive text-3xl text-pink-600 text-center mb-2">Galería de Recuerdos 📸</h3>
+                
+                <!-- Botón para mostrar/ocultar el álbum -->
+                <div class="text-center mt-4 mb-6">
+                    <button onclick="toggleAlbum(event)" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300">
+                        Abrir nuestro álbum 📸
+                    </button>
+                </div>
+
+                <!-- Contenedor del álbum (Oculto por defecto con la clase 'hidden') -->
+                <div id="album-fotos" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Imagen 1 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto1.jpeg" alt="Recuerdo 1" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-black font-semibold">Momentos Mágicos</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 2 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto2.png" alt="Recuerdo 2" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Aventuras</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 3 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto3.JPG" alt="Recuerdo 3" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Siempre Juntos</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 4 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto4.JPG" alt="Recuerdo 4" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Mi Persona Favorita</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 5 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto5.webp" alt="Recuerdo 5" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Días Felices</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 6 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto6.webp" alt="Recuerdo 6" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Sonrisas</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 7 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto7.jpg" alt="Recuerdo 7" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Nuestra Historia</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 8 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto8.png" alt="Recuerdo 8" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Te Amo</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 9 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto9.jpg" alt="Recuerdo 9" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Inolvidable</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 10 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto10.jpg" alt="Recuerdo 10" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Mi Amor</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 11 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto11.JPG" alt="Recuerdo 11" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Juntos</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 12 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto12.webp" alt="Recuerdo 12" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Para Siempre</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 13 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto13.JPG" alt="Recuerdo 13" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Tú y Yo</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Nuestro Video -->
+           <div class="w-full bg-black flex justify-center">
+                <video controls class="w-full max-h-[60vh] object-contain">
+                    <source src="Video.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // 1. Generador de Corazones Flotantes en el fondo
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const heartCount = 30; // Número de corazones simultáneos
+            const emojis = ['❤️', '💖', '💕', '🌸', '✨'];
+
+            for (let i = 0; i < heartCount; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'heart-bg absolute';
+                heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                // Propiedades aleatorias para tamaño, posición y duración
+                let size = Math.random() * 20 + 10; // 10px a 30px
+                let left = Math.random() * 100; // 0% a 100% de la pantalla
+                let duration = Math.random() * 10 + 10; // 10s a 20s
+                let delay = Math.random() * 10; // Retraso de 0s a 10s
+
+                heart.style.fontSize = `${size}px`;
+                heart.style.left = `${left}vw`;
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.animationDelay = `${delay}s`;
+
+                container.appendChild(heart);
+            }
+        }
+
+        // 2. Lógica del Botón de Abrir (Animación de entrada)
+        const openBtn = document.getElementById('open-btn');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const mainContent = document.getElementById('main-content');
+        const body = document.body;
+
+        openBtn.addEventListener('click', () => {
+            // Desvanecer la pantalla de bienvenida
+            welcomeScreen.style.opacity = '0';
+            
+            setTimeout(() => {
+                welcomeScreen.classList.add('hidden'); // Ocultar completamente
+                mainContent.classList.remove('hidden'); // Mostrar contenido
+                body.classList.remove('overflow-hidden'); // Permitir scroll en la página
+                
+                // Efecto de aparición suave del contenido
+                mainContent.style.opacity = '0';
+                setTimeout(() => {
+                    mainContent.style.transition = 'opacity 1s ease-in';
+                    mainContent.style.opacity = '1';
+                }, 50);
+                
+            }, 1000); // Esperar a que termine la transición de opacidad
+        });
+
+        // 3. Lógica del Contador de Tiempo Juntos (Desde el 5 de Octubre)
+        function updateTimeTogether() {
+            const now = new Date();
+            
+            // Fecha de inicio: 5 de Octubre de 2026
+            // En JS los meses van de 0 (Enero) a 11 (Diciembre), por eso Octubre es el mes 9
+            const startDate = new Date(2026, 9, 5, 0, 0, 0); 
+            
+            // Calculamos la diferencia de tiempo (la fecha actual menos la fecha en la que empezaron)
+            const diff = now - startDate;
+
+            // Si por alguna razón la fecha actual es anterior, no hacemos nada
+            if (diff < 0) return;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+            
+            // Actualizar el HTML añadiendo un cero a la izquierda si es menor a 10
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+
+        // 4. Lógica para Mostrar/Ocultar el Álbum de Fotos
+        function toggleAlbum(event) {
+            const album = document.getElementById('album-fotos');
+            
+            if (album.classList.contains('hidden')) {
+                album.classList.remove('hidden');
+                event.target.innerText = "Ocultar nuestro álbum 🙈";
+            } else {
+                album.classList.add('hidden');
+                event.target.innerText = "Abrir nuestro álbum 📸";
+            }
+        }
+
+        // Inicializar funciones cuando el DOM esté cargado
+        document.addEventListener('DOMContentLoaded', () => {
+            createHearts();
+            updateTimeTogether();
+            setInterval(updateTimeTogether, 1000); // Actualizar cada segundo
+        });
+
+    </script>
+</body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi persona favorita ❤️</title>
+    <!-- Tailwind CSS para el diseño rápido y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuentes de Google para un toque más romántico -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'cursive': ['"Dancing Script"', 'cursive'],
+                        'sans': ['"Nunito"', 'sans-serif'],
+                    },
+                    colors: {
+                        'pink': {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fbcfe8 100%);
+            min-height: 100vh;
+        }
+
+        /* Animación de corazones flotantes */
+        .heart-bg {
+            position: fixed;
+            bottom: -10vh;
+            color: #f9a8d4;
+            opacity: 0.6;
+            animation: floatUp linear infinite;
+            z-index: 0;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Efecto de latido para el botón del sobre */
+        .pulse-heart {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Ocultar barra de desplazamiento pero permitir scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 overflow-hidden relative">
+
+    <!-- Contenedor de corazones flotantes -->
+    <div id="hearts-container" class="absolute inset-0 overflow-hidden pointer-events-none z-0"></div>
+
+    <!-- PANTALLA DE INICIO (Sobre / Botón) -->
+    <div id="welcome-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-pink-100 transition-opacity duration-1000 ease-in-out">
+        <div class="text-center px-6">
+            <h1 class="font-cursive text-4xl md:text-5xl text-pink-600 mb-8 drop-shadow-md">Tienes una carta especial...</h1>
+            
+            <button id="open-btn" class="relative group outline-none transition-transform hover:scale-105 active:scale-95">
+                <!-- Icono de sobre usando SVG -->
+                <div class="w-48 h-32 bg-pink-300 rounded-lg shadow-xl relative overflow-hidden flex items-center justify-center border-2 border-pink-400">
+                    <!-- Solapa del sobre -->
+                    <div class="absolute top-0 left-0 w-full h-full border-t-[80px] border-t-pink-200 border-l-[96px] border-l-transparent border-r-[96px] border-r-transparent origin-top transition-transform duration-500 group-hover:rotate-x-180 z-10"></div>
+                    <!-- Corazón central -->
+                    <div class="z-20 pulse-heart text-5xl">💝</div>
+                </div>
+                <p class="mt-6 text-pink-600 font-bold tracking-wider uppercase text-sm bg-white/50 py-2 px-6 rounded-full shadow-sm">Tocar para abrir</p>
+            </button>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL (Oculto al inicio) -->
+    <main id="main-content" class="hidden h-screen overflow-y-auto hide-scrollbar z-10 relative pb-20 pt-10 px-4 md:px-8">
+        <div class="max-w-2xl mx-auto space-y-12">
+            
+            <!-- 1. Carta Romántica -->
+            <section class="glass-card p-8 rounded-3xl shadow-lg shadow-pink-200/50 transform transition hover:-translate-y-1 duration-300">
+                <h2 class="font-cursive text-4xl text-pink-600 text-center mb-6"> Para mi amor eterno ❤️</h2>
+                <div class="space-y-4 text-gray-700 leading-relaxed text-lg">
+                    <p>Hola mi vida,</p>
+                    <p>Quería hacer algo especial para ti, algo diferente que pudieras guardar y ver cuando quisieras. Gracias por ser mi persona favorita, por hacer mis días más ligeros y por sacarme sonrisas incluso cuando no tengo ganas.</p>
+                    <p>Aún recuerdo cuando caminábamos juntos; desde la primera ves todo serios y callados xd,hasta las tardes de risas y helados. Cada lugar a tu lado se convierte en mi lugar favorito del mundo.</p>
+                    <p>Contigo todo se siente más bonito, más divertido y más real. Te elijo hoy y siempre (y también para comer juntos, ver pelis y reírnos de tonterías).</p>
+                    <p>Amor mio agradecer a la vida por darme la oportunidad de poder estar contigo y sobretodo a Dios por mandarme a la mujer de mis sueños, te amo hoy y siempre cariño mio, nunca olvides que el amor que te dare siempre seguira aumentando para ti, siempre te adorare y te amare, hasta mis ultimos dias.</p>
+                    <p class="font-bold text-pink-500 text-right mt-6">Te amo muchisimo ❤️✨</p>
+                </div>
+            </section>
+
+            <!-- 2. Tiempo Juntos (Contador) -->
+            <section class="glass-card p-8 rounded-3xl shadow-lg shadow-pink-200/50 text-center">
+                <h3 class="text-xl font-bold text-pink-500 mb-6 uppercase tracking-wide">Nuestro tiempo juntos 🥰</h3>
+                <div class="flex justify-center gap-3 md:gap-6 text-pink-600">
+                    <div class="flex flex-col items-center bg-white/60 w-16 h-16 md:w-20 md:h-20 justify-center rounded-2xl shadow-sm">
+                        <span id="days" class="text-2xl md:text-3xl font-bold">00</span>
+                        <span class="text-xs font-semibold uppercase">Días</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-white/60 w-16 h-16 md:w-20 md:h-20 justify-center rounded-2xl shadow-sm">
+                        <span id="hours" class="text-2xl md:text-3xl font-bold">00</span>
+                        <span class="text-xs font-semibold uppercase">Hrs</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-white/60 w-16 h-16 md:w-20 md:h-20 justify-center rounded-2xl shadow-sm">
+                        <span id="minutes" class="text-2xl md:text-3xl font-bold">00</span>
+                        <span class="text-xs font-semibold uppercase">Min</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-white/60 w-16 h-16 md:w-20 md:h-20 justify-center rounded-2xl shadow-sm">
+                        <span id="seconds" class="text-2xl md:text-3xl font-bold">00</span>
+                        <span class="text-xs font-semibold uppercase">Seg</span>
+                    </div>
+                </div>
+                <p class="text-center text-sm text-pink-500 mt-4 italic">Aqui amor quedara por siempre el tiempo que estaremos juntos ❤️ *</p>
+            </section>
+
+            <!-- 3. Galería de Recuerdos -->
+            <section class="glass-card p-8 rounded-3xl shadow-lg shadow-pink-200/50">
+                <h3 class="font-cursive text-3xl text-pink-600 text-center mb-2">Galería de Recuerdos 📸</h3>
+                
+                <!-- Botón para mostrar/ocultar el álbum -->
+                <div class="text-center mt-4 mb-6">
+                    <button onclick="toggleAlbum(event)" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300">
+                        Abrir nuestro álbum 📸
+                    </button>
+                </div>
+
+                <!-- Contenedor del álbum (Oculto por defecto con la clase 'hidden') -->
+                <div id="album-fotos" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Imagen 1 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto1.jpeg" alt="Recuerdo 1" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-black font-semibold">Momentos Mágicos</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 2 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto2.png" alt="Recuerdo 2" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Aventuras</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 3 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto3.JPG" alt="Recuerdo 3" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Siempre Juntos</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 4 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto4.JPG" alt="Recuerdo 4" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Mi Persona Favorita</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 5 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto5.webp" alt="Recuerdo 5" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Días Felices</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 6 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto6.webp" alt="Recuerdo 6" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Sonrisas</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 7 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto7.jpg" alt="Recuerdo 7" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Nuestra Historia</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 8 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto8.png" alt="Recuerdo 8" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Te Amo</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 9 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto9.jpg" alt="Recuerdo 9" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Inolvidable</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 10 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto10.jpg" alt="Recuerdo 10" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Mi Amor</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 11 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto11.JPG" alt="Recuerdo 11" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Juntos</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 12 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto12.webp" alt="Recuerdo 12" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Para Siempre</span>
+                        </div>
+                    </div>
+                    <!-- Imagen 13 -->
+                    <div class="group relative rounded-2xl overflow-hidden shadow-md aspect-[4/5] bg-white/50">
+                        <img src="foto13.JPG" alt="Recuerdo 13" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 pointer-events-none">
+                            <span class="text-white font-semibold">Tú y Yo</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Nuestro Video -->
+            <section class="glass-card p-4 md:p-6 rounded-3xl shadow-lg shadow-pink-200/50 mb-10">
+                <h3 class="font-cursive text-3xl text-pink-600 text-center mb-4">Un Video Especial 🎬</h3>
+                <p class="text-center text-gray-600 mb-4 text-sm">Dale play para recordar.</p>
+                
+                <!-- Contenedor sin bordes ni esquinas redondeadas -->
+                <div class="w-full bg-black">
+                    <iframe class="w-full aspect-video border-0 block" src="https://drive.google.com/file/d/1-9ow5bGAUElpdoA6Zgz7E6Mjfk9oKiO0/preview" allow="autoplay" allowfullscreen></iframe>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        // 1. Generador de Corazones Flotantes en el fondo
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const heartCount = 30; // Número de corazones simultáneos
+            const emojis = ['❤️', '💖', '💕', '🌸', '✨'];
+
+            for (let i = 0; i < heartCount; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'heart-bg absolute';
+                heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                // Propiedades aleatorias para tamaño, posición y duración
+                let size = Math.random() * 20 + 10; // 10px a 30px
+                let left = Math.random() * 100; // 0% a 100% de la pantalla
+                let duration = Math.random() * 10 + 10; // 10s a 20s
+                let delay = Math.random() * 10; // Retraso de 0s a 10s
+
+                heart.style.fontSize = `${size}px`;
+                heart.style.left = `${left}vw`;
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.animationDelay = `${delay}s`;
+
+                container.appendChild(heart);
+            }
+        }
+
+        // 2. Lógica del Botón de Abrir (Animación de entrada)
+        const openBtn = document.getElementById('open-btn');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const mainContent = document.getElementById('main-content');
+        const body = document.body;
+
+        openBtn.addEventListener('click', () => {
+            // Desvanecer la pantalla de bienvenida
+            welcomeScreen.style.opacity = '0';
+            
+            setTimeout(() => {
+                welcomeScreen.classList.add('hidden'); // Ocultar completamente
+                mainContent.classList.remove('hidden'); // Mostrar contenido
+                body.classList.remove('overflow-hidden'); // Permitir scroll en la página
+                
+                // Efecto de aparición suave del contenido
+                mainContent.style.opacity = '0';
+                setTimeout(() => {
+                    mainContent.style.transition = 'opacity 1s ease-in';
+                    mainContent.style.opacity = '1';
+                }, 50);
+                
+            }, 1000); // Esperar a que termine la transición de opacidad
+        });
+
+        // 3. Lógica del Contador de Tiempo Juntos (Desde el 5 de Octubre)
+        function updateTimeTogether() {
+            const now = new Date();
+            
+            // Fecha de inicio: 5 de Octubre de 2026
+            // En JS los meses van de 0 (Enero) a 11 (Diciembre), por eso Octubre es el mes 9
+            const startDate = new Date(2026, 9, 5, 0, 0, 0); 
+            
+            // Calculamos la diferencia de tiempo (la fecha actual menos la fecha en la que empezaron)
+            const diff = now - startDate;
+
+            // Si por alguna razón la fecha actual es anterior, no hacemos nada
+            if (diff < 0) return;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+            
+            // Actualizar el HTML añadiendo un cero a la izquierda si es menor a 10
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+
+        // 4. Lógica para Mostrar/Ocultar el Álbum de Fotos
+        function toggleAlbum(event) {
+            const album = document.getElementById('album-fotos');
+            
+            if (album.classList.contains('hidden')) {
+                album.classList.remove('hidden');
+                event.target.innerText = "Ocultar nuestro álbum 🙈";
+            } else {
+                album.classList.add('hidden');
+                event.target.innerText = "Abrir nuestro álbum 📸";
+            }
+        }
+
+        // Inicializar funciones cuando el DOM esté cargado
+        document.addEventListener('DOMContentLoaded', () => {
+            createHearts();
+            updateTimeTogether();
+            setInterval(updateTimeTogether, 1000); // Actualizar cada segundo
+        });
+
+    </script>
+</body>
+>>>>>>> c667feece6de293a89045bfd96745d4f32d4ee36
+</html>
